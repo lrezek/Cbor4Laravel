@@ -2,13 +2,15 @@
 
 namespace LRezek\Cbor4Laravel\Extensions;
 
-class Request extends \Illuminate\Http\Request 
+use \Illuminate\Http\Request as BaseRequest;
+
+class Request extends BaseRequest
 {
 
     public function doSomething()
     {
         echo 'Doing something!';
-    {
+    }
 
 }
 
