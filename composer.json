@@ -1,7 +1,7 @@
 {
     "name": "lrezek/cbor4laravel",
-    "description": "CBOR provider for laravel.",
-    "keywords": ["laravel","CBOR"],
+    "description": "CBOR provider for Laravel.",
+    "keywords": ["laravel","cbor"],
     "homepage": "https://github.com/lrezek/Cbor4Laravel",
     "license": "MIT",
     "authors": [
