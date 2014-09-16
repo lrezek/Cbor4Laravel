@@ -1,0 +1,20 @@
+{
+    "name": "lrezek/cbor4laravel",
+    "description": "CBOR provider for laravel.",
+    "keywords": ["laravel","CBOR"],
+    "homepage": "https://github.com/lrezek/Cbor4Laravel",
+    "license": "MIT",
+    "authors": [
+        {"name": "Lukas Rezek","email": "lukas@miratronix.com"},{"name": "Adam Weber"}
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": ">=4.1.0",
+    },
+    "autoload": {
+        "psr-0": {
+            "": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
