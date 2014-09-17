@@ -34,7 +34,7 @@ class Request extends BaseRequest
     /**
      * Get the CBOR payload for the request.
      *
-     * @param  string  $key The key to get the value for, in "dot notation" (ex: user.username = cbor["user"]["username])
+     * @param  string  $key The key to get the value for, in "dot notation" (ex: user.username = cbor["user"]["username"])
      * @param  mixed   $default Default value if the key isn't found.
      * @return mixed
      */
