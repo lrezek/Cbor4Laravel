@@ -20,7 +20,7 @@ class Request extends BaseRequest
     }
 
     /**
-     * Determine if the current request is asking for CBOR in return.
+     * Determine if the request is asking for CBOR in return.
      *
      * @return bool
      */
