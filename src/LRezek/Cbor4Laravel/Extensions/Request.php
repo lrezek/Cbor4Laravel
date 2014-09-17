@@ -34,7 +34,7 @@ class Request extends BaseRequest
     /**
      * Get the CBOR payload for the request.
      *
-     * @param  string  $key The key to get the value for, in "dot notation" (ex: user.username = cbor["user"]["username"])
+     * @param  string  $key The key to get the value for, in "dot notation" (ex: user.username = cbor["user"]["username"]).
      * @param  mixed   $default Default value if the key isn't found.
      * @return mixed
      */
@@ -69,7 +69,7 @@ class Request extends BaseRequest
             return $this->cbor();
         }
         
-        //Fall back to request implementation of get input source.
+        //Fall back to Request implementation of getInputSource().
         return parent::getInputSource();
     }
 
