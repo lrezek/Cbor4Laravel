@@ -6,7 +6,7 @@ use \Illuminate\Http\Request as BaseRequest;
 
 class Request extends BaseRequest
 {
-
+    /** The decoded CBOR content for the request. @var ParameterBag */
     protected $cbor;
 
     /**
