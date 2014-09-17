@@ -56,6 +56,23 @@ class Request extends BaseRequest
         return array_get($this->cbor->all(), $key, $default);
     }
 
+    /**
+     * Get the input source for the request.
+     *
+     * @return \Symfony\Component\HttpFoundation\ParameterBag
+     */
+    protected function getInputSource()
+    {
+        //Decode cbor
+        if($this->isCbor())
+        {
+            return $this->cbor();
+        }
+        
+        //Fall back to request implementation of get input source.
+        return parent::getInputSource();
+    }
+
 }
 
 ?>
