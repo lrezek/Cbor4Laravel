@@ -1,6 +1,4 @@
-<?php
-
-namespace LRezek\Cbor4Laravel\Support;
+<?php namespace LRezek\Cbor4Laravel\Support;
 
 interface CborableInterface
 {

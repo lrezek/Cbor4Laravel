@@ -1,13 +1,11 @@
-<?php
+<?php namespace LRezek\Cbor4Laravel\Http;
 
-namespace LRezek\Cbor4Laravel\Extensions;
-
-use \Illuminate\Http\Request as BaseRequest;
+use Illuminate\Http\Request as BaseRequest;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
 class Request extends BaseRequest
 {
-    /** The decoded CBOR content for the request. @var ParameterBag */
+    /** @var ParameterBag The decoded CBOR content for the request. */
     protected $cbor;
 
     /**
@@ -60,6 +58,7 @@ class Request extends BaseRequest
     /**
      * Get the input source for the request.
      *
+     * @see \Illuminate\Http\Request::getInputSource()
      * @return \Symfony\Component\HttpFoundation\ParameterBag
      */
     protected function getInputSource()

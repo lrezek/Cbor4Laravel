@@ -1,10 +1,14 @@
-<?php namespace LRezek\Cbor4Laravel\Extensions;
+<?php namespace LRezek\Cbor4Laravel\Http;
 
-use \Symfony\Component\HttpFoundation\Response as SymfonyResponse;
+use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
+use Illuminate\Http\ResponseTrait;
 use LRezek\Cbor4Laravel\Support\CborableInterface;
 
 class CborResponse extends SymfonyResponse
 {
+    use ResponseTrait;
+
+    /** @var String CBOR encoded data. */
     protected $data;
 
     /**
@@ -27,7 +31,18 @@ class CborResponse extends SymfonyResponse
     }
 
     /**
-     * {@inheritdoc}
+     * Factory method for chainability
+     *
+     * Example:
+     *
+     *     return Response::create($body, 200)
+     *         ->setSharedMaxAge(300);
+     *
+     * @param mixed   $data The response content, see setContent()
+     * @param int     $status  The response status code
+     * @param array   $headers An array of response headers
+     *
+     * @return Response
      */
     public static function create($data = null, $status = 200, $headers = array())
     {
