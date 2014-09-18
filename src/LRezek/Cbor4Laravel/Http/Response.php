@@ -65,7 +65,10 @@ class Response extends SymfonyResponse
 	 */
 	protected function morphToJson($content)
 	{
-		if ($content instanceof JsonableInterface) return $content->toJson();
+		if($content instanceof JsonableInterface)
+        {
+            return $content->toJson();
+        }
 
 		return json_encode($content);
 	}
@@ -78,7 +81,10 @@ class Response extends SymfonyResponse
      */
     protected function morphToCbor($content)
     {
-        if ($content instanceof CborableInterface) return $content->toCbor();
+        if($content instanceof CborableInterface)
+        {
+            return $content->toCbor();
+        }
 
         return cbor_encode($content);
     }
@@ -105,8 +111,8 @@ class Response extends SymfonyResponse
     protected function shouldBeCbor($content)
     {
         return $content instanceof CborableInterface ||
-        $content instanceof ArrayObject ||
-        is_array($content);
+               $content instanceof ArrayObject ||
+               is_array($content);
     }
 
 	/**
