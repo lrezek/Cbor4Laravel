@@ -6,6 +6,7 @@ use LRezek\Cbor4Laravel\Support\CborableInterface;
 
 class CborResponse extends SymfonyResponse
 {
+    //Add header and cookie functions
     use ResponseTrait;
 
     /** @var String CBOR encoded data. */
