@@ -17,7 +17,7 @@ class Response extends LaravelResponse
      */
     public static function cbor($data = array(), $status = 200, array $headers = array())
     {
-        if ($data instanceof ArrayableInterface)
+        if($data instanceof ArrayableInterface)
         {
             $data = $data->toArray();
         }

@@ -18,7 +18,7 @@ class CborResponse extends SymfonyResponse
     {
         parent::__construct('', $status, $headers);
 
-        if ($data == null)
+        if($data == null)
         {
             $data = new \ArrayObject();
         }
@@ -55,7 +55,7 @@ class CborResponse extends SymfonyResponse
     protected function update()
     {
         // Only set the header when there is none.
-        if (!$this->headers->has('Content-Type'))
+        if(!$this->headers->has('Content-Type'))
         {
             $this->headers->set('Content-Type', 'application/cbor');
         }
