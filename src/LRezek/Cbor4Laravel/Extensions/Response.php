@@ -1,17 +1,29 @@
 <?php
 
-napespace LRezek\Cbor4Laravel\Extensions;
+namespace LRezek\Cbor4Laravel\Extensions;
 
-use Illuminate\Support\Facades\Response as BaseResponse;
+use Illuminate\Support\Contracts\ArrayableInterface;
+use Illuminate\Support\Facades\Response as LaravelResponse;
 
-class Response extends BaseResponse 
+class Response extends LaravelResponse
 {
-
-    public static function doSomething()
+    /**
+     * Creates a new CBOR response.
+     *
+     * @param array $data
+     * @param int $status
+     * @param array $headers
+     * @return CborResponse
+     */
+    public static function cbor($data = array(), $status = 200, array $headers = array())
     {
-        return new \Symfony\Component\HttpFoundation\JsonResponse(['message' => 'yay!']);
-    }
+        if ($data instanceof ArrayableInterface)
+        {
+            $data = $data->toArray();
+        }
 
+        return new CborResponse($data, $status, $headers);
+    }
 }
 
 ?>

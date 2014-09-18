@@ -3,6 +3,7 @@
 namespace LRezek\Cbor4Laravel\Extensions;
 
 use \Illuminate\Http\Request as BaseRequest;
+use Symfony\Component\HttpFoundation\ParameterBag;
 
 class Request extends BaseRequest
 {
