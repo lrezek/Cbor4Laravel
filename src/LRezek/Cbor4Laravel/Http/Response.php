@@ -1,6 +1,7 @@
 <?php namespace LRezek\Cbor4Laravel\Http;
 
 use ArrayObject;
+use Exception;
 use Illuminate\Support\Contracts\JsonableInterface;
 use LRezek\Cbor4Laravel\Support\CborableInterface;
 use Illuminate\Support\Contracts\RenderableInterface;
@@ -12,10 +13,33 @@ class Response extends SymfonyResponse
     //Add header and cookie functions
 	use ResponseTrait;
 
-    //TODO: When is it cbor, and when is it JSON?
-
 	/** @var mixed The original content of the response. */
 	public $original;
+
+    /** @var string The type of encoding to do. */
+    public $format;
+
+    /**
+     * Constructs the response with the specified content, status, headers, and encoding type.
+     * @param mixed|string $content The response content.
+     * @param int $status The response status.
+     * @param array $headers The response headers.
+     * @param $format string Encoding format to use.
+     * @throws Exception Thrown if the type is invalid.
+     */
+    public function __construct($content, $status, $headers, $format)
+    {
+        //Save the type
+        $this->format = strtolower($format);
+
+        //If the format is invalid
+        if( (strcmp($this->format,'json') != 0) && (strcmp($this->format,'cbor') != 0))
+        {
+            throw new Exception("$format is not a valid encoding format for a response.");
+        }
+
+        parent::__construct($content, $status, $headers);
+    }
 
 	/**
 	 * Set the content on the response.
@@ -97,9 +121,15 @@ class Response extends SymfonyResponse
 	 */
 	protected function shouldBeJson($content)
 	{
-		return $content instanceof JsonableInterface ||
-			   $content instanceof ArrayObject ||
-			   is_array($content);
+        //It should be json'd if the type is json and if implements JSONableInterface, ArrayObject, or is an array.
+        if($this->format == 'json')
+        {
+            return $content instanceof JsonableInterface ||
+                   $content instanceof ArrayObject ||
+                   is_array($content);
+        }
+
+        return false;
 	}
 
     /**
@@ -110,9 +140,15 @@ class Response extends SymfonyResponse
      */
     protected function shouldBeCbor($content)
     {
-        return $content instanceof CborableInterface ||
-               $content instanceof ArrayObject ||
-               is_array($content);
+        //It should be cbor'd if the type is cbor and if implements CBORableInterface, ArrayObject, or is an array.
+        if($this->format == 'cbor')
+        {
+            return $content instanceof CborableInterface ||
+                   $content instanceof ArrayObject ||
+                   is_array($content);
+        }
+
+        return false;
     }
 
 	/**
