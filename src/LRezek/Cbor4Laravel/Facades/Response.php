@@ -31,12 +31,11 @@ class Response extends ResponseFacade
      * @param  string  $content
      * @param  int     $status
      * @param  array   $headers
-     * @param  string  $format
      * @return CustomResponse
      */
-    public static function make($content = '', $status = 200, array $headers = array(), $format = 'json')
+    public static function make($content = '', $status = 200, array $headers = array())
     {
-        return new CustomResponse($content, $status, $headers, $format);
+        return new CustomResponse($content, $status, $headers);
     }
 }
 

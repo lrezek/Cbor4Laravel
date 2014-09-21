@@ -24,19 +24,12 @@ class Response extends SymfonyResponse
      * @param mixed|string $content The response content.
      * @param int $status The response status.
      * @param array $headers The response headers.
-     * @param $format string Encoding format to use.
      * @throws Exception Thrown if the type is invalid.
      */
-    public function __construct($content, $status, $headers, $format)
+    public function __construct($content, $status, $headers)
     {
-        //Save the type
-        $this->format = strtolower($format);
-
-        //If the format is invalid
-        if( (strcmp($this->format,'json') != 0) && (strcmp($this->format,'cbor') != 0))
-        {
-            throw new Exception("$format is not a valid encoding format for a response.");
-        }
+        //Default format
+        $this->format = 'json';
 
         parent::__construct($content, $status, $headers);
     }
@@ -160,5 +153,28 @@ class Response extends SymfonyResponse
 	{
 		return $this->original;
 	}
+
+    /**
+     * Changes the format of the response.
+     *
+     * @param string $format The format to use cbor|json
+     * @return Response $this This response for chainability.
+     * @throws Exception If the requested format is invalid.
+     */
+    public function format($format)
+    {
+        $format = strtolower($format);
+
+        //If the format is invalid
+        if( (strcmp($format,'json') != 0) && (strcmp($format,'cbor') != 0))
+        {
+            throw new Exception("$format is not a valid encoding format for a response.");
+        }
+
+        $this->format = $format;
+
+        //Allow command chaining
+        return $this;
+    }
 
 }
