@@ -7,6 +7,7 @@ use LRezek\Cbor4Laravel\Support\CborableInterface;
 use Illuminate\Support\Contracts\RenderableInterface;
 use Illuminate\Http\ResponseTrait;
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
+use LRezek\Cbor4Laravel\Util\CBOREncoder;
 
 class Response extends SymfonyResponse
 {
@@ -103,7 +104,7 @@ class Response extends SymfonyResponse
             return $content->toCbor();
         }
 
-        return cbor_encode($content);
+        return CBOREncoder::encode($content);
     }
 
 	/**

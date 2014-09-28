@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request as BaseRequest;
 use Symfony\Component\HttpFoundation\ParameterBag;
+use LRezek\Cbor4Laravel\Util\CBOREncoder;
 
 class Request extends BaseRequest
 {
@@ -42,7 +43,7 @@ class Request extends BaseRequest
         //Don't decode twice!
         if(!isset($this->cbor))
         {
-            $this->cbor = new ParameterBag((array) cbor_decode($this->getContent(), true));
+            $this->cbor = new ParameterBag((array) CBOREncoder::decode($this->getContent(), true));
         }
  
         //Return the whole array if no key was specified
