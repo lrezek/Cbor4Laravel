@@ -1,7 +1,7 @@
 About
 =============
 
-CBOR4Laravel adds CBOR functionality to Laravel Requests and Responses.
+Cbor4Laravel adds CBOR functionality to Laravel Requests and Responses. For more information on what CBOR is, please see the [spec](http://cbor.io/).
 
 Installation
 =============
