@@ -1,10 +1,7 @@
-Cbor4Laravel
-============
-
 About
-=====
+=============
 
-CBOR4Laravel adds CBOR functionality to Laravel Requests and Repsonses.
+CBOR4Laravel adds CBOR functionality to Laravel Requests and Responses.
 
 Installation
 =============
@@ -65,5 +62,5 @@ This allows you to use `Response::cbor()` the same way you would use `Response::
 Additionally, you can make a custom response and format it in CBOR as follows:
 
 ```PHP
-Response::make($content)->format('cbor); //Returns a CBOR formatted Response.
+Response::make($content)->format('cbor'); //Returns a CBOR formatted Response.
 ```
