@@ -54,7 +54,7 @@ To enable CBOR responses, simply replace Laravels `Reponse` Facade in the `alias
 
 ```PHP
   //'Response'      => 'Illuminate\Support\Facades\Response',
-    'Response'      => 'LRezek\CBOR4Laravel\Facades\Response',
+    'Response'      => 'LRezek\Cbor4Laravel\Facades\Response',
 ```
 
 This allows you to use `Response::cbor()` the same way you would use `Response::json()`. For an example of this, please refer to the [Laravel documentation](http://laravel.com/docs/4.2/responses#special-responses).
