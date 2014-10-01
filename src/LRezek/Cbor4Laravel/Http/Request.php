@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request as BaseRequest;
 use Symfony\Component\HttpFoundation\ParameterBag;
-use LRezek\Cbor4Laravel\Util\CBOREncoder;
+use CBOR\CBOREncoder;
 
 class Request extends BaseRequest
 {

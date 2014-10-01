@@ -7,7 +7,7 @@ use LRezek\Cbor4Laravel\Support\CborableInterface;
 use Illuminate\Support\Contracts\RenderableInterface;
 use Illuminate\Http\ResponseTrait;
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
-use LRezek\Cbor4Laravel\Util\CBOREncoder;
+use CBOR\CBOREncoder;
 
 class Response extends SymfonyResponse
 {

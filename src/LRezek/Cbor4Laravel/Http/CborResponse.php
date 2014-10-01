@@ -3,7 +3,7 @@
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 use Illuminate\Http\ResponseTrait;
 use LRezek\Cbor4Laravel\Support\CborableInterface;
-use LRezek\Cbor4Laravel\Util\CBOREncoder;
+use CBOR\CBOREncoder;
 
 class CborResponse extends SymfonyResponse
 {

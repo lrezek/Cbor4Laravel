@@ -1,10 +1,7 @@
-About
-=============
-
+#About
 Cbor4Laravel adds CBOR functionality to Laravel Requests and Responses. For more information on what CBOR is, please see the [spec](http://cbor.io/).
 
-Installation
-=============
+#Installation
 
 Add `lrezek/cbor4laravel` as a requirement to `composer.json`:
 
@@ -16,10 +13,11 @@ Add `lrezek/cbor4laravel` as a requirement to `composer.json`:
 }
 ```
 
+Depending on your stability settings, you may also need to add a requirement to `"2tvenom/cborencode": "dev-master"`.
+
 Update your packages with `composer update` or install with `composer install`.
 
-Request
-=============
+##Request
 Because the Request class is made so early in the Laravel lifecycle, you need to override the implementation in `bootstrap/start.php`. Add the following to the start of the file:
 
 ```PHP
@@ -48,8 +46,7 @@ Input::cbor($key);            //Get value of the specified key in the input.
 Input::cbor($key, $default);  //Get value of specified key in the input, or the specified $default if the key isn't found.
 ```
 
-Response
-=============
+##Response
 To enable CBOR responses, simply replace Laravels `Reponse` Facade in the `aliases` array of `app/config/app.php`:
 
 ```PHP
