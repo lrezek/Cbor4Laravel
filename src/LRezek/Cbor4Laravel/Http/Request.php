@@ -43,7 +43,6 @@ class Request extends BaseRequest
         //If there is no message content, just return null
         if(is_null($this->getContent()))
         {
-            $this->cbor = null;
             return null;
         }
         
