@@ -10,7 +10,8 @@
     "require": {
         "php": ">=5.3.0",
         "illuminate/support": ">=4.1.0",
-        "illuminate/http": ">=4.1.0"
+        "illuminate/http": ">=4.1.0",
+        "2tvenom/cborencode": "dev-master"
     },
     "autoload": {
         "psr-0": {
