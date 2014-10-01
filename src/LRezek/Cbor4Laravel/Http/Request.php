@@ -40,8 +40,15 @@ class Request extends BaseRequest
      */
     public function cbor($key = null, $default = null)
     {
+        //If there is no message content, just return null
+        if(is_null($this->getContent()))
+        {
+            $this->cbor = null;
+            return null;
+        }
+        
         //Don't decode twice!
-        if(!isset($this->cbor))
+        if(!isset($this->cbor)))
         {
             $this->cbor = new ParameterBag((array) CBOREncoder::decode($this->getContent(), true));
         }
