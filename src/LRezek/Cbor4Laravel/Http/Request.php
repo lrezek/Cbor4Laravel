@@ -47,7 +47,7 @@ class Request extends BaseRequest
         }
         
         //Don't decode twice!
-        if(!isset($this->cbor)))
+        if(!isset($this->cbor))
         {
             $this->cbor = new ParameterBag((array) CBOREncoder::decode($this->getContent(), true));
         }
