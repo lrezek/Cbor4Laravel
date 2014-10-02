@@ -40,16 +40,19 @@ class Request extends BaseRequest
      */
     public function cbor($key = null, $default = null)
     {
-        //If there is no message content, just return null
-        if(is_null($this->getContent()))
+        //Grab the content
+        $content = $this->getContent();
+
+        //Deal with empty input.
+        if(empty($content))
         {
             return null;
         }
-        
+
         //Don't decode twice!
         if(!isset($this->cbor))
         {
-            $this->cbor = new ParameterBag((array) CBOREncoder::decode($this->getContent(), true));
+            $this->cbor = new ParameterBag((array) CBOREncoder::decode($content, true));
         }
  
         //Return the whole array if no key was specified
