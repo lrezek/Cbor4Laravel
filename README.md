@@ -13,7 +13,7 @@ Add `lrezek/cbor4laravel` as a requirement to `composer.json`:
 }
 ```
 
-Depending on your stability settings, you may also need to add a requirement to `"2tvenom/cborencode": "dev-master"`.
+Depending on your stability settings, you may also need to add a requirement to `"lemonblast/cbor4php": "dev-master"`.
 
 Update your packages with `composer update` or install with `composer install`.
 
@@ -47,7 +47,7 @@ Input::cbor($key, $default);  //Get value of specified key in the input, or the 
 ```
 
 ##Response
-To enable CBOR responses, simply replace Laravels `Reponse` Facade in the `aliases` array of `app/config/app.php`:
+To enable CBOR responses, simply replace Laravel's `Response` Facade in the `aliases` array of `app/config/app.php`:
 
 ```PHP
   //'Response'      => 'Illuminate\Support\Facades\Response',

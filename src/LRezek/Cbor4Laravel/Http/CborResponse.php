@@ -3,7 +3,7 @@
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 use Illuminate\Http\ResponseTrait;
 use LRezek\Cbor4Laravel\Support\CborableInterface;
-use CBOR\CBOREncoder;
+use Lemonblast\Cbor4Php\Cbor;
 
 class CborResponse extends SymfonyResponse
 {
@@ -59,7 +59,7 @@ class CborResponse extends SymfonyResponse
      */
     public function setData($data = array())
     {
-        $this->data = $data instanceof CborableInterface ? $data->toCbor() : CBOREncoder::encode($data);
+        $this->data = $data instanceof CborableInterface ? $data->toCbor() : Cbor::encode($data);
 
         return $this->update();
     }
@@ -87,7 +87,7 @@ class CborResponse extends SymfonyResponse
      */
     public function getData()
     {
-        return CBOREncoder::decode($this->data);
+        return Cbor::decode($this->data);
     }
 
 }
